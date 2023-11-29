@@ -69,9 +69,9 @@ while (count <= num) {
     count % 7 === 0 && count % 5 === 0 ? final.push("buzzbazz"): 
     count % 7 === 0 && count % 3 === 0 ? final.push("fizzbazz"): 
     count % 5 === 0 && count % 3 === 0 ? final.push("fizzbuzz"): 
-    count % 7 === 0? final.push("bazz"):
+    count % 7 === 0 ? final.push("bazz"):
     count % 5 === 0 ? final.push("buzz"): 
-    count % 3 === 0? final.push("fizz"):
+    count % 3 === 0 ? final.push("fizz"):
     final.push(count);
     count++
 }
@@ -79,7 +79,12 @@ return final;
 };
 
 
-
+/*
+    Algo reflection:
+        this one was a good welcome back to algo life. still is very straightfoward for me to do, so I decided 
+        to throw in a few ternaries for giggles. I must remember to read the prompt, look at return outputs, and
+        continue to handle edge casing. All in all, classic and straight forward.
+*/
 
 module.exports = {fizzbuzz, fizzbuzzbazz};
 
