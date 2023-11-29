@@ -13,62 +13,30 @@ fizzbuzz(16);
 */
 
 const fizzbuzz = num => {  
-//lets first create an empty array
+//this is a good one, so lets first edge out any negative or zero case.
+if (num <= 0) {
+    return "please enter a positive number!"
+}
+
+//now our output is an array, so lets create an empty array, which we will return.
 const final = [];
-//using a while loop and a count variable, while count <= to the passed in num. assign count to be 1, initally.
+
+//lets declare a new var called count, then increment it toward our passed in num. On every iteration,
+//if we hit a number thats divisible by 3 and 5, 3, or 5. then we establish certain conditions. else we just
+//push the number itself into the array. 
+
 let count = 1;
+
 while (count <= num) {
-    //if count is both divisible by 3 & 5, then we return fizzbuzz
-    if (count % 3 === 0 && count % 5 === 0) {
-        final.push("fizzbuzz")
-    }
-    //if count is divisible by 3 only, then we return fizz
-    else if (count % 3 === 0) {
-        final.push("fizz")
-    }
-    //if count is both divisible by 5, then we return buzz
-    else if (count % 5 === 0) {
-        final.push("buzz")
-    }
-    //if none of the conditions above, we just push the count itself into the array
-    else {
+    count % 5 === 0 && count % 3 === 0 ? final.push("fizzbuzz"): 
+    count % 3 === 0 ? final.push("fizz"): 
+    count % 5 === 0? final.push("buzz"):
     final.push(count);
-    }
-    //we want to make sure we increment count on every iteration of the while loop, if you dont, then doom time. 
     count++
 }
-//outside of the while loop, we return the final populated array
 return final;
+
 };
-
-
-
-//I went ahead and tried refactoring with a filter method, for some conciseness. 
-const fizzbuzzTwo = num => {  
-const final = [];
-for (let i = 1; i <= num; i++) {
-    final.push(i);
-}
-final.forEach((el, index) => {
-    if(el % 3 === 0 && el % 5 === 0) {
-        final.splice(index, 1, "fizzbuzz")
-    }
-    if(el % 3 === 0) {
-        final.splice(index, 1, "fizz")
-    }
-    if(el % 5 === 0) {
-        final.splice(index, 1, "buzz")
-    }
-})
-
-return final;
-};
-    
-
-
-// console.log(fizzbuzz(16));
-// console.log(fizzbuzzTwo(16));
-
 
 /*
 
@@ -90,28 +58,27 @@ fizzbuzzbazz(22);
 */
 
 const fizzbuzzbazz = num => {
-    const final = [];
-
-    for (let i = 1; i <= num; i++) {
-        let string = "";
-        
-
-
-
-
-
-
-
-
-    }
-
-
-    return final;
+//lets do the same thing as above, but just add a few more cases
+if (num <= 0) {
+    return "please enter a positive number!"
+}
+const final = [];
+let count = 1;
+while (count <= num) {
+    count % 7 === 0 && count % 5 === 0 && count % 3 === 0 ? final.push("fizzbuzzbazz"): 
+    count % 7 === 0 && count % 5 === 0 ? final.push("buzzbazz"): 
+    count % 7 === 0 && count % 3 === 0 ? final.push("fizzbazz"): 
+    count % 5 === 0 && count % 3 === 0 ? final.push("fizzbuzz"): 
+    count % 7 === 0? final.push("bazz"):
+    count % 5 === 0 ? final.push("buzz"): 
+    count % 3 === 0? final.push("fizz"):
+    final.push(count);
+    count++
+}
+return final;
 };
 
 
-
-console.log(fizzbuzzbazz(22));
 
 
 module.exports = {fizzbuzz, fizzbuzzbazz};
