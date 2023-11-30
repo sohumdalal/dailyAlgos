@@ -57,7 +57,10 @@ mode([4, []]) -> 4
 */
 
 const modeNested = array => {
-    
+    //we already have pretty good mode functionality above, lets leverage that.
+    //we also know that natively array.flat exists, so lets also leverage that.
+    const flat = array.flat(Infinity);
+    return mode(flat);
 };
 
 
