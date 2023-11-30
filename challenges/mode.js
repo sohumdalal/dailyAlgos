@@ -63,7 +63,14 @@ const modeNested = array => {
     return mode(flat);
 };
 
-
+/*
+    Algo reflection:
+        I really did not want to iterate a second time over my cache, so that tripped me up a bit.
+        Overall I am happy I remembered Sky's Slick one liner of adding to a cache. I also love that
+        I was able to make the Code dryer by chaining a giant conditional statement. Overall, great problem to do
+        while we continue to ramp up our skills to "job ready". I had to look up a few things, like
+        Object key lookup, and array flat, but all good. Time complexity wise, this is O(N), extension too! 
+*/
 
 
 

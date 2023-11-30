@@ -82,7 +82,7 @@ return final;
     Algo reflection:
         This one was a good welcome back to algo life after some vacation time. still is very straightfoward for me to do,
          so I decided to throw in a few ternaries for giggles. I must remember to read the prompt, look at return outputs, 
-        and continue to handle edge casing. All in all, classic and straight forward.
+        and continue to handle edge casing. All in all, classic and straight forward. Time complexity is O(N).
 */
 
 module.exports = {fizzbuzz, fizzbuzzbazz};
