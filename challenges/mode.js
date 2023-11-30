@@ -12,7 +12,25 @@ mode([7, 5, 8, 8, 2, 5]) -> 8
 */
 
 const mode = array => {
-    
+    //first lets edge out a case where our array is empty
+    if(!array.length) {
+        return "please enter valid array, with non-zero length!"
+    }
+    //we want to essentially create a cache that keeps track of how many times a number appears. start by creating 
+    //a cache
+    const cache = {};
+    //iterate through the passed in array, and add to cache, if it exsists then increment the count
+    array.forEach(element => {
+        if(cache[element]) {
+            cache[element] += 1;
+        }
+        else {
+            cache[element] = 1;
+        }
+    });
+
+    return Math.max[]
+
 };
 
 
