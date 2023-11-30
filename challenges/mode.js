@@ -13,31 +13,27 @@ mode([7, 5, 8, 8, 2, 5]) -> 8
 
 const mode = array => {
     //first lets edge out a case where our array is empty
-    if(!array.length) {
-        return "please enter valid array, with non-zero length!"
-    }
+    if(!array.length) return "please enter valid array, with non-zero length!"
     //we want to essentially create a cache that keeps track of how many times a number appears. start by creating 
-    //a cache
+    //a cache, and then create variables to keep track of the amount of times a number appears, modeVal, and the number itself, maxVal
     const cache = {};
+    let modeVal = -Infinity;
+    let maxVal;
     //iterate through the passed in array, and add to cache, if it exsists then increment the count
+    //the conditional should check if the cache[element] is greater than the current mode, if it is then it reassigns
+    //the conditional should also check that if the cache[element] is equal to the exsisting mode and the current element
+        //is greater than the number itself the mode is based on, then the passed in element becomes the new mode.
+        //to better understand, we can also imagine that we are returning the minimum value instead of maxVal
     array.forEach(element => {
-        if(cache[element]) {
-            cache[element] += 1;
-        }
-        else {
-            cache[element] = 1;
+        cache[element] = (cache[element] || 0) + 1;
+        if((cache[element] > modeVal) || (cache[element] === modeVal && element >= maxVal)) {
+            modeVal = cache[element]
+            maxVal = element;
         }
     });
-
-    return Math.max[]
-
+    return maxVal;
 };
 
-
-
-
-//sky: cache[val] = (cache[val] || 0) + 1; this entire line is the cache object. my lines 17-24
-//use modeVal and MaxVal. put the max condiitonal within the forEach. should be done in 12lines. 
 
 
 
