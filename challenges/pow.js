@@ -13,12 +13,13 @@ if (power <= 0) return 1;
 //lets define some varaibles here to keep track how many times we multiple, and what the product is
 let count = 0;
 let product = 1;
-
+//entering the while loop, as long as count is less than the power, keep mulitplying the current product by the base
+//and increment the count as well
 while (count < power) {
  product *= base;
  count++;
 }
-
+//Finally return the product
 return product;
 
 }
