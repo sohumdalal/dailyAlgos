@@ -5,7 +5,28 @@ ex: [1,5,4,3,6,2,4,7] should return 4
 */
 
 const duplicateNumber = array => {
+//my first inclination here is to use some of a cache that tracks how many times a number repeats
+//we know that only one num is duplicated, all we do if find the cache value that is not 1, and return the element
 
+//edge case
+if(!array.length) {
+    return "please enter valid array length"
+}
+
+//define a cache and a dup variable
+const cache = {};
+let dup;
+
+//iterate and find the duplicate
+array.forEach(element => {
+    cache[element] = (cache[element] || 0) + 1;
+    if(cache[element] !== 1) {
+        dup = element;
+    }
+});
+
+//return it
+return dup;
 };
 
 
