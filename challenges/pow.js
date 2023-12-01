@@ -8,17 +8,21 @@
  */
 
 function pow(base, power) {
+//straight forward, lets get into the solution using a while loop; but make sure we edge out. 
+if (power <= 0) return 1;
+//lets define some varaibles here to keep track how many times we multiple, and what the product is
+let count = 0;
+let product = 1;
 
-  let final = 1;
-
-  for (let i = 1; i <= power; i++) {
-    final *= base
-  }
-  return final;
+while (count < power) {
+ product *= base;
+ count++;
 }
 
+return product;
 
-// console.log(pow(3,3));
+}
+
 
 
 /**
@@ -26,11 +30,7 @@ function pow(base, power) {
  */
 
 function powRecurse(base, power) {
-  if (power === 0) {
-    return 1;
-  }
 
-  return base * powRecurse(base, power - 1)
 }
 
 
