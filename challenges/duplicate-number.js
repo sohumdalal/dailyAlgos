@@ -65,6 +65,15 @@ const duplicateNumberAdvanced = array => {
     return duplicate;
 };
 
+/*
+    Algo reflection:
+        really really tough one to get in constant space complexity. I dipped into the internet to get some direction, 
+        and looked at some other solutions. this is one is golden though, however I probably could not come up with it
+        myself. Now that I have seen something like it, I feel comfortable with the process. its a confusing one as you are
+        moving through out the array. I could use a conversation around this algo with someone like Charlie. 
+*/
+
+
 duplicateNumberAdvanced([3, 4, 7, 6, 8, 5, 6]);
 
 module.exports = { duplicateNumber, duplicateNumberAdvanced };
