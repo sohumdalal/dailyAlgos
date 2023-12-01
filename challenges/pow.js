@@ -31,7 +31,13 @@ return product;
  */
 
 function powRecurse(base, power) {
-
+//much easier in my opinion
+//establish a base case case in which we exit out recursive calls:
+if(power === 0) {
+    return 1;
+}
+//recursive case that handles the continual multiplying until base case is recieved;
+return base * powRecurse(base, --power);
 }
 
 
