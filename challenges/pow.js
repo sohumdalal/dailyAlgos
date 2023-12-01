@@ -40,6 +40,10 @@ if(power === 0) {
 return base * powRecurse(base, --power);
 }
 
-
+/*
+    Algo reflection: Overall, straightforward. However, while loops and doing things without recursion is a pain.
+    It is almost as if you have think very rudimentary. I see the use here though; imagine teaching someone for the 
+    first time how JS or even code works. I see the value of both strategies
+*/
 
 module.exports = { pow, powRecurse };
