@@ -37,7 +37,7 @@ ex: [3, 4, 7, 6, 8, 5, 6] should return 6
 */
 
 const duplicateNumberAdvanced = array => {
-
+return duplicateNumber(array);
 };
 
 module.exports = { duplicateNumber, duplicateNumberAdvanced };
