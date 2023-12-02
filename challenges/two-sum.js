@@ -18,20 +18,29 @@
 
 
 const twoSum = (arr, target) => {
+  //start out by edge casing
   if (!arr.length) {
     return "please enter a valid array";
   }
+  //lets create a difference cache, the point of this cache will be to keep track of the numbers we have iterated through,
+  //checking if each number we iterate is === a complement, a difference between the target and arr[i]
   const diffCache = {};
+
   for (let i = 0; i < arr.length; i++) {
+
     const complement = target - arr[i];
+
+    //checking the cache for exsistence
     if (diffCache[complement] !== undefined) {
       return true;
     }
-    numMap[arr[i]] = i;
+
+    //doesnt exist so we add our iterated number to the cache, as potential candidate
+    diffCache[arr[i]] = i;
   }
+
   return false;
 }
-
 
 /*
 Extension:
