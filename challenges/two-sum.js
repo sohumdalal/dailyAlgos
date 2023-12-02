@@ -17,8 +17,19 @@
 */
 
 
-const twoSum = (arr, target) => { 
+const twoSum = (arr, target) => {
+  //lets brute force this, then see if we can refactor towards an O(n) solution. 
+  //my approach is to take the difference of the target and a the current element.
+  if (!arr.length) {
+    return "please enter a valid array";
+  }
 
+  for (let i = 0; i < arr.length; i++) {
+    const temp = target - arr[i];
+    if (arr.contains(temp)) {
+      return true;
+    }
+  }
 }
 
 /*
@@ -31,7 +42,7 @@ The straightforward way to solve this problem would take O(n³) time. Is it poss
 
 */
 
-const threeSum = (arr, target) => { 
+const threeSum = (arr, target) => {
 
 }
 
