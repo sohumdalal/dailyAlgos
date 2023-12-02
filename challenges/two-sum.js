@@ -19,18 +19,24 @@
 
 const twoSum = (arr, target) => {
   //lets brute force this, then see if we can refactor towards an O(n) solution. 
-  //my approach is to take the difference of the target and a the current element.
   if (!arr.length) {
     return "please enter a valid array";
   }
 
   for (let i = 0; i < arr.length; i++) {
+    //my approach is to take the difference of the target and a the current element.
     const temp = target - arr[i];
-    if (arr.contains(temp)) {
+    console.log("temp:", temp);
+    //now lets check if the temp value exists in the array itself
+    if (arr.includes(temp)) {
       return true;
     }
   }
+  return false;
 }
+
+const nums = [4, 6, 12, 9, 1]
+console.log(twoSum(nums, 2));
 
 /*
 Extension:
