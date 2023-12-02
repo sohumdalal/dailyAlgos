@@ -53,17 +53,27 @@ The straightforward way to solve this problem would take O(n³) time. Is it poss
 */
 
 const threeSum = (arr, target) => {
-  //lets brute force to start
+  //our previous solution, it turns out, is scalable. so lets implement it
+  const diffCache = {}
 
   for (let i = 0; i < arr.length; i++) {
+
     for (let j = i + 1; j < arr.length; j++) {
-      for (let k = j + 1; k < arr.length; k++) {
-        if (arr[i] + arr[j] + arr[k] === target) {
-          return true;
-        }
+
+      //the trick here is to acknowledge the nested for loop, and define complement as such. just as before:
+      //checking if each number we iterate is === a complement, a difference between the target and (arr[i] + arr[j])
+
+      const complement = target - (arr[i] + arr[j])
+
+      if (diffCache[complement] !== undefined) {
+        return true;
       }
+
+      //doesnt exist so we add our iterated number to the cache, as potential candidate
+      diffCache[arr[i]] = i;
     }
   }
+
   return false;
 }
 
