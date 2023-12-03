@@ -68,7 +68,7 @@ const threeSum = (arr, target) => {
       if (diffCache[complement] !== undefined) {
         return true;
       }
-             
+
       //doesnt exist so we add our iterated number to the cache, as potential candidate
       diffCache[arr[i]] = i;
     }
@@ -77,6 +77,10 @@ const threeSum = (arr, target) => {
   return false;
 }
 
+/*
+    Algo reflection: Complement is the key!!! such a classic problem that i feel so much more comfortable with after doing it this time around. 
+    
+*/
 
 arr3 = [1, 4, 7, 2, 9, 0];
 console.log(threeSum(arr3, 19))
