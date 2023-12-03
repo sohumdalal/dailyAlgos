@@ -15,7 +15,20 @@
  */
 
 function Stack() {
+    this.storage = {};
+    this.index = 0;
+}
 
+Stack.prototype.push = (value) => {
+    this.storage[this.index++] = value;
+}
+
+Stack.prototype.pop = () => {
+    if(index <=0) {
+        return "nothing to remove"
+    }
+    const elToRemove = this.storage[this.index - 1];
+    
 }
 
 function Queue() {
