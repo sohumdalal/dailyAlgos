@@ -28,7 +28,8 @@ Stack.prototype.pop = () => {
         return "nothing to remove"
     }
     const elToRemove = this.storage[this.index - 1];
-    
+    delete this.storage[this.index - 1] 
+    return `${elToRemove} was removed from the stack`;
 }
 
 function Queue() {
