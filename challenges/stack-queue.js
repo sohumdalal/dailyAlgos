@@ -14,45 +14,59 @@
  * 
  */
 
+const { off } = require("process");
+
 //stacks are objects, that can follow 0=indexed array format
 function Stack() {
-    this.storage = {};
-    this.index = 0;
+    this.stack = {};
+    this.length = 0;
 }
 
 //pushing an element involves adding a property to the storage object
-Stack.prototype.push = (value) => {
-    this.storage[this.index++] = value;
+Stack.prototype.push = function (value) {
+    this.stack[this.length] = value;
+    this.length++;
 }
 
 //popping involves removing a property from the storage object
-Stack.prototype.pop = () => {
-    if (index <= 0) {
+Stack.prototype.pop = function () {
+    if (this.length <= 0) {
         return "nothing to remove"
     }
-    const elToRemove = this.storage[this.index - 1];
-    delete this.storage[this.index - 1]
-    return `${elToRemove} was removed from the stack`;
+    const elToRemove = this.stack[this.length - 1];
+    delete this.stack[this.length - 1]
+    this.length--
+    return elToRemove;
 }
 
 //Queue's can also be thought of as two stacks.
 function Queue() {
-    this.stackOne = new Stack();
-    this.stackTwo = new Stack();
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
 }
 
-Queue.prototype.enqueue = (value) => {
-    this.stackOne.storage[this.stackOne.index++] = value;
+Queue.prototype.enqueue = function (value) {
+    this.stack1.push(value);
 }
 
-Queue.prototype.dequeue = () => {
-    while (this.stackOne) {
-        this.stackTwo.push(this.stackOne.pop());
+Queue.prototype.dequeue = function () {
+    if (!this.stack1.length && !this.stack2.length) {
+        return undefined;
     }
-    const itemToDq = this.stackTwo.pop();
-    delete this.stackTwo.pop()
-    return itemToDq;
+    while (this.stack1.length > 0) {
+        const stack2add = this.stack1.pop();
+        this.stack2.push(stack2add);
+    }
+
+    return this.stack2.pop();
 }
 
+// const myQueue = new Queue();
+// myQueue.enqueue(1);
+// myQueue.enqueue(2);
+// myQueue.enqueue(3);
+// console.log(myQueue.dequeue());
+// console.log(myQueue.dequeue());
+// console.log(myQueue.dequeue());
 
 module.exports = { Stack, Queue };
