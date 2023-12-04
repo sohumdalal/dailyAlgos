@@ -36,6 +36,20 @@ const getAllProducts = array => {
         final.push(product);
     }
     return final;
+
+//     const final = [];
+//     let product = 1;
+//     array.forEach(element => {product *= element;});
+//     array.forEach(element => {
+//         if(element !== 0) {
+//             final.push(product/element)
+//         }
+//         else {
+//             final.push(0);
+//         }
+//     });
+//     return final;
+
 };
 
 console.log(getAllProducts([0, 3, 4, 0]));
