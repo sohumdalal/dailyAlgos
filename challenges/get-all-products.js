@@ -21,7 +21,25 @@ input array? How would you handle this?
 */
 
 const getAllProducts = array => {
-  
+
+    const final = [];
+
+    for (let i = 0; i < array.length; i++) {
+
+        const pin = array[i];
+        let product = 1;
+
+        for (let j = 0; j < array.length; j++) {
+            if (array[j] !== pin) {
+                product *= array[j];
+            }
+        }
+        final.push(product);
+    }
+    return final;
 };
+
+console.log(getAllProducts([0, 3, 4, 0]));
+console.log(getAllProducts([9, 0, 0, 0, 4, 7]));
 
 module.exports = { getAllProducts };
