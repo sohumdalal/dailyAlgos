@@ -26,11 +26,10 @@ const getAllProducts = array => {
 
     for (let i = 0; i < array.length; i++) {
 
-        const pin = array[i];
         let product = 1;
 
         for (let j = 0; j < array.length; j++) {
-            if (array[j] !== pin) {
+            if (array[j] !== array[i] || i !== j) {
                 product *= array[j];
             }
         }
