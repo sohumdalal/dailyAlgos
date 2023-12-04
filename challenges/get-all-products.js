@@ -52,6 +52,13 @@ const getAllProducts = array => {
 
 };
 
+/*
+    Algo reflection: Fun little problem that continues our understanding of the basics, 
+    and how arrays work under the hood. solved this relatively fast, and loved the additional 
+    challenge regarding the zeroes. ON is tough, especially considering the case where only 1 zero is
+    present. onwards we go. 
+*/
+
 console.log(getAllProducts([0, 3, 4, 0]));
 console.log(getAllProducts([9, 0, 0, 0, 4, 7]));
 
