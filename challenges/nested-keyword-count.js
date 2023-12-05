@@ -1,3 +1,4 @@
+
 /*
 
 Given an arbitrarily nested array of strings, and a target keyword strong,
@@ -10,7 +11,14 @@ keywordCount(['blah', 'key', ['inside', ['really inside']]], 'lol') -> 0
 */
 
 const keywordCount = (array, keyword) => {
-  
+    const flat = array.flat(Infinity);
+    let keycount = 0;
+    for (let i = 0; i < flat.length; i++) {
+        if (flat[i] === keyword) {
+            keycount++;
+        }
+    }
+    return keycount;
 };
 
 /*
@@ -27,7 +35,27 @@ keywordMode([['ace', 'cool'], ['hi'], 'cool']) -> ['cool']
 */
 
 const keywordMode = array => {
-  
+    const flat = array.flat(Infinity);
+    const cache = {};
+    let max = -Infinity;
+    const maxArray = [];
+
+    flat.forEach(element => {
+        cache[element] = (cache[element] || 0) + 1;
+        if (cache[element] > max) {
+            max = cache[element];
+        }
+    });
+
+    for (const element in cache) {
+        if (cache[element] === max) {
+            maxArray.push(element);
+        }
+    }
+    return maxArray.sort();
 };
 
-module.exports = {keywordCount, keywordMode};
+const array = ['y', 'hi', 'bright', 'x', 'z', 'x', 'hi', 'y', 'light'];
+console.log(keywordMode(array));
+
+module.exports = { keywordCount, keywordMode };
