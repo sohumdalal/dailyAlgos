@@ -16,14 +16,23 @@ commonElements(arr1, arr2, arr3) -> [2, 3, 2000, 'dog']
 */
 
 const commonElements = (...args) => {
+    //start by edging out an empty array of arrays
     if (!args.length) {
         return "please enter valid array";
     }
-    return args.reduce((common, curr) => {
-        return common.filter((el) => {
-            curr.includes(el) 
-        })
-    }, args[0]);
+    //declare a variable final, which is the final version of the common elements using the reduce method.
+    const final = args.reduce((common, curr) => {
+        //within the reduce method, for every element, check against the acc which is an array of common elements. 
+        return common.filter((el) => curr.includes(el))
+    });
+
+    //if no common elements, then return the string
+    if(!final.length) {
+        return "Nothing in Common!"
+    }
+
+    //return the common elements
+    return final;
 };
 
 const arr1 = [2, 10, 'cat', 3, 99, 2000, 'dog', 'lion'];
@@ -33,6 +42,11 @@ const arr3 = [2, 100, 2000, 'dog', 3, 'lion'];
 console.log(commonElements(arr1, arr2, arr3));
 
 
+
+/*
+    Algo reflection: fun problem dealing with reduce. make note of that inner return 
+    statement with the common.filter. it returns filter on every iteration, to update common. 
+*/
 
 /*
 ** Extension **
