@@ -27,7 +27,7 @@ const commonElements = (...args) => {
     });
 
     //if no common elements, then return the string
-    if(!final.length) {
+    if (!final.length) {
         return "Nothing in Common!"
     }
 
