@@ -55,6 +55,11 @@ const keywordMode = array => {
     return maxArray.sort();
 };
 
+/*
+    Algo reflection: nice little problem that practices caching, and mode. 
+    there has to be a dryer way to do this, but Im happy with brute force for now.
+*/
+
 const array = ['y', 'hi', 'bright', 'x', 'z', 'x', 'hi', 'y', 'light'];
 console.log(keywordMode(array));
 
