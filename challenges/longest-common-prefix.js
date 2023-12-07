@@ -20,7 +20,7 @@ const longestCommonPrefix = (strs) => {
             //if commonality is broken, then return the prefix
             if (strs[0][i] !== strs[j][i]) {
                 return prefix;
-           }
+            }
         }
         //if every ith position char, for each string, is the same. then add to prefix
         prefix += strs[0][i];
@@ -36,4 +36,4 @@ const longestCommonPrefix = (strs) => {
     I was almost there. need a bit of help just thinking through the return statements.
 */
 
-    module.exports = { longestCommonPrefix };
+module.exports = { longestCommonPrefix };

@@ -21,6 +21,18 @@ that's convertable to JSON. (This is just the memoize problem)
 
 const memoize = func => {
   
+  const cache = {};
+  
+  function memoized (value) {
+    if(cache[value]){
+      return cache[value];
+    }
+    else {
+      cache[value] = func(value);
+    }
+  }
+
+  return memoized;
 };
 
 /*
