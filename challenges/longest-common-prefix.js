@@ -11,7 +11,6 @@ longestCommonPrefix(["dog","racecar","car"]) --> "" (There is no common prefix a
 const longestCommonPrefix = (strs) => {
     let prefix = '';
     if (!strs.length) return prefix;
-    //lets first iterate through the array, then lets iterate through each string. 
     for (let i = 0; i < strs[0].length; i++) {
         for (let j = 0; j < strs.length; j++) {
             if (strs[0][i] !== strs[j][i]) {
@@ -22,8 +21,11 @@ const longestCommonPrefix = (strs) => {
     }
     return prefix;
 }
-    //For each element in the string, I want to first capture the first character, and then the second, and so on
-    //if there is a 
 
+
+/*
+    Algo reflection: fun problem. I have to remember to brute force the mapping. 
+    I was almost there. need a bit of help just thinking through the return statements.
+*/
 
     module.exports = { longestCommonPrefix };
