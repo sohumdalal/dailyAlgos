@@ -147,5 +147,8 @@ const cachePromiseFunction2 = (fn) => {
   };
 };
 
+/*
+algo reflection: need to read so much about promises, event loop and asynccccc
+*/
 
 module.exports = { memoize, cachePromiseFunction, cachePromiseFunction2 };
