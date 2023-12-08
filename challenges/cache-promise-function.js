@@ -20,15 +20,17 @@ that's convertable to JSON. (This is just the memoize problem)
 */
 
 const memoize = func => {
-  
+
   const cache = {};
-  
-  function memoized (value) {
-    if(cache[value]){
+
+  function memoized(value) {
+    if (cache[value]) {
       return cache[value];
     }
     else {
-      cache[value] = func(value);
+      const result = func(value);
+      cache[value] = result;
+      return result;
     }
   }
 
@@ -80,7 +82,20 @@ Hint: look up Promise.resolve - https://developer.mozilla.org/en-US/docs/Web/Jav
 // "get" is a p-function, that is, a function that takes in a url-string and
 // returns a promise
 const cachePromiseFunction = get => {
-  
+  const pcache = {};
+
+  function pmemoized(value) {
+    if (pcache[value]) {
+      return pcache[value];
+    }
+    else {
+      const result = Promise.resolve(get(value));
+      pcache[value] = result;
+      return result;
+    }
+  }
+
+  return pmemoized;
 };
 
 
@@ -105,8 +120,32 @@ As above, don't worry about promise rejections/errors or using .catch()
 
 // "get" is a p-function, that is, a function that takes in a url-string and
 // returns a promise
-const cachePromiseFunction2 = get => {
-  
+const cachePromiseFunction2 = (fn) => {
+  const cache = new Map();
+
+  return async (...args) => {
+    const key = JSON.stringify(args);
+
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+
+    const promise = fn(...args)
+      .then((result) => {
+        cache.set(key, Promise.resolve(result)); // Cache resolved result
+        return result;
+      })
+      .catch((error) => {
+        // Delete cache entry if API call fails
+        cache.delete(key);
+        return Promise.reject(error);
+      });
+
+    cache.set(key, promise); // Cache the promise itself
+
+    return promise;
+  };
 };
 
-module.exports = {memoize, cachePromiseFunction, cachePromiseFunction2};
+
+module.exports = { memoize, cachePromiseFunction, cachePromiseFunction2 };
