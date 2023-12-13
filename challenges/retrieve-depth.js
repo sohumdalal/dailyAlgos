@@ -22,17 +22,18 @@ is within "depth 3". No number is deeper.
 
 */
 
-const retrieveDepth = (arr, depth) => {
+const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
   //condition making sure you are not too deep. 
-  let callCount = 1;
-  const finalArray = [];
 
   if(callCount <= depth && !Array.isArray(arr[0])) {
     finalArray.push(arr[0]);
+    return retrieveDepth(arr.slice(1), depth, finalArray, callCount)
+
   }
 
-  if(callCount <= depth && Array.isArray(arr[0])) {
-    return retrieveDepth(arr[0], depth)
+  if(callCount < depth && Array.isArray(arr[0])) {
+    callCount++;
+    return retrieveDepth(arr[0], depth, finalArray, callCount)
   }
 
 
