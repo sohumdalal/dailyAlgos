@@ -26,7 +26,7 @@ const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
   //condition making sure you are not too deep. 
 
   if (!arr.length) {
-    return finalArray;
+    return finalArray
   }
 
   if(callCount <= depth && !Array.isArray(arr[0])) {
@@ -37,7 +37,7 @@ const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
 
   if(callCount < depth && Array.isArray(arr[0])) {
     callCount++;
-    return retrieveDepth(arr[0], depth, finalArray, callCount)
+     retrieveDepth(arr[0], depth, finalArray, callCount)
   }
 
   return retrieveDepth(arr.slice(1), depth, finalArray, callCount)
