@@ -45,6 +45,25 @@ const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
 
 };
 
+
+
+// const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
+//   if (callCount > depth || !arr.length) {
+//     return finalArray;
+//   }
+
+//   for (const elem of arr) {
+//     if (Array.isArray(elem)) {
+//       retrieveDepth(elem, depth, finalArray, callCount + 1);
+//     } else {
+//       finalArray.push(elem);
+//     }
+//   }
+
+//   return finalArray;
+// };
+
+
 console.log(retrieveDepth([2, [4, [7], 1], 5], 2))
 
 /*
