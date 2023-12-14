@@ -25,6 +25,10 @@ is within "depth 3". No number is deeper.
 const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
   //condition making sure you are not too deep. 
 
+  if (!arr.length) {
+    return finalArray;
+  }
+
   if(callCount <= depth && !Array.isArray(arr[0])) {
     finalArray.push(arr[0]);
     return retrieveDepth(arr.slice(1), depth, finalArray, callCount)
@@ -36,8 +40,12 @@ const retrieveDepth = (arr, depth, finalArray = [], callCount = 1) => {
     return retrieveDepth(arr[0], depth, finalArray, callCount)
   }
 
+  return retrieveDepth(arr.slice(1), depth, finalArray, callCount)
+
 
 };
+
+console.log(retrieveDepth([2, [4, [7], 1], 5], 2))
 
 /*
 
