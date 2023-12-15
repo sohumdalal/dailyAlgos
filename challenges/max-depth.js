@@ -20,7 +20,7 @@ maxDepth([4, [0, [[3], 2]], 2, 7, 8, [1]]) -> 4 (maximum depth is 4 levels)
 */
 
 const maxDepth = arr => {
-  
+  //do this
 };
 
 module.exports = {maxDepth};
