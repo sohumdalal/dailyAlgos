@@ -94,7 +94,8 @@ flattened array
 */
 
 const flattenDepth = (arr, depth) => {
-  
+  //this time you are including all elements regardless of of depth
+  //only difference is you flatten up until a certain depth
 };
 
 module.exports = {retrieveDepth, flattenDepth};
