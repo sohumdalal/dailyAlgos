@@ -28,14 +28,18 @@ const highestProfit = apple_stock => {
 
     let max = -Infinity;
     for (let i = 0; i < apple_stock.length; i++) {
-        for (let j = i + 1; j < apple_stock.length; j++) {
-            const currentProfit = apple_stock[j] - apple_stock[i]
-            if (max < currentProfit) {
-                max = currentProfit
-            }
-        }
+        // for (let j = i + 1; j < apple_stock.length; j++) {
+        //     const currentProfit = apple_stock[j] - apple_stock[i]
+        //     if (max < currentProfit) {
+        //         max = currentProfit
+        //     }
+        // }
+        let min = i;
+        let max = i + 1;
+        let diff = apple_stock[max] - apple_stock[min];
+        
     }
-    return max > 0 ? max: 0;
+    // return max > 0 ? max: 0;
 }
 
 console.log(highestProfit([1000, 500, 1500, 2000, 0]));
