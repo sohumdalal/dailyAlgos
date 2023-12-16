@@ -21,7 +21,18 @@ calculate profit along the array.
 */
 
 const highestProfit = apple_stock => {
-
+    let max = -Infinity;
+//lets brute force a n2 solution to start
+//my thinking is that we start with a nested loop, and we check the max value, whatever the max is, we return that.
+for(let i = 0; i < apple_stock.length; i++) {
+    for(let j = i + 1; j < apple_stock.length; i++) {
+        const currentProfit = apple_stock[j] - apple_stock[i]
+        if(max < currentProfit) {
+            max = currentProfit
+        }
+    }
+}
+return max;
 }
 
 module.exports = {highestProfit}
