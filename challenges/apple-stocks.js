@@ -22,11 +22,12 @@ calculate profit along the array.
 
 const highestProfit = apple_stock => {
 
-    if (!Array.isArray(apple_stock)) {
+    if (!Array.isArray(apple_stock) || apple_stock.length < 2) {
         return 0;
     }
 
-    let max = -Infinity;
+    let minIndex = 0;
+    let max = 0;
     for (let i = 0; i < apple_stock.length; i++) {
         // for (let j = i + 1; j < apple_stock.length; j++) {
         //     const currentProfit = apple_stock[j] - apple_stock[i]
@@ -34,12 +35,16 @@ const highestProfit = apple_stock => {
         //         max = currentProfit
         //     }
         // }
-        let min = i;
-        let max = i + 1;
-        let diff = apple_stock[max] - apple_stock[min];
-        
+        const currentProfit = apple_stock[i] - apple_stock[minIndex];
+        if(apple_stock[i] < apple_stock[minIndex]) {
+            minIndex = i;
+        }
+        else if (currentProfit > max) {
+            max = currentProfit;
+        }
+
     }
-    // return max > 0 ? max: 0;
+    return max;
 }
 
 console.log(highestProfit([1000, 500, 1500, 2000, 0]));
