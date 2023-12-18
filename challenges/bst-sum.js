@@ -24,6 +24,7 @@ const bstSum = (root) => {
   sum += bstSum(root.left);
   sum += bstSum(root.right);
 
+  //regardless if the node has subsequent left and right nodes, a sum is always returned
   return sum;
 };
 
