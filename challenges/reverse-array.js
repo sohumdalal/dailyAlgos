@@ -9,11 +9,12 @@ to the array prototype while solving the problem.
 const reverseArray = array => {
   const half = Math.floor(array.length/2)
   for(let i = 0; i < half; i++) {
-    array[i] = array[array.length-1];
-    array[array.length-1] = array[i];
+    console.log("array", array)
   }
   return array;
 };
+
+console.log(reverseArray([1,2,3,4]));
 
 /*
 
