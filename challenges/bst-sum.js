@@ -13,9 +13,20 @@ function.
 
 */
 
-const bstSum = root => {
+const bstSum = (root) => {
+  if (!root) {
+    return 0; // Return 0 for null nodes
+  }
   
+  let sum = root.value; // Initialize sum with the current node's value
+
+  // Recursively calculate sum for left and right subtrees
+  sum += bstSum(root.left);
+  sum += bstSum(root.right);
+
+  return sum;
 };
+
 
 /*
 
