@@ -7,19 +7,24 @@ to the array prototype while solving the problem.
 */
 
 const reverseArray = array => {
-
+//start by indicating start and end pointers
  let start = 0;
  let end = array.length - 1;
 
+ //as long as start is less than the end, we are approaching a midpoint
  while (start < end) {
+    //we assign a temp var to the value at start
     let temp = array[start];
+    //conduct the swap
     array[start] = array[end];
+    //since now there are duplicates we assign the end pointer to the temp val stored in memory
     array[end] = temp;
 
+    //increment start/decrement end towards the midpoint
     start++;
     end--;
  }
-
+//return the same array, mutated
  return array;
 };
 
