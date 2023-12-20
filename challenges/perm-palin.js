@@ -30,7 +30,7 @@ const permPalin = str => {
         if (cache[key] === 1) {
             oneCount++
            }
-        if(cache[key] % 2 !== 0) {
+        else if(cache[key] % 2 !== 0) {
             return false;
         }
     }
@@ -39,7 +39,11 @@ const permPalin = str => {
 
 };
 
-console.log(permPalin("c"));
+console.log(permPalin("abab"));
+console.log(permPalin("cbaba"));
+console.log(permPalin("cbac"));
+console.log(permPalin("a"));
+
 
 /* 
  * Extension: Solve in constant space complexity.
