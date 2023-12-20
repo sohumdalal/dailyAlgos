@@ -29,43 +29,39 @@ function Node(val) {
 }
 
 const linkedListRemove = (ll, val) => {
-
+//we first edge out the possibility of not receiving proper inputs from the user
   if (!val || !ll) {
     return "please enter a value or valid linked list"
   }
 
+//now the head itself is a node, therefore it has a val property. if the val
+//is equal the head val, then we have a match, and reassign the pointers below. 
   if (ll.head.val === val) {
     const valRemove = ll.head.val;
     ll.head = ll.head.next;
     return valRemove;
   }
 
+  //now the value is not in the head, so lets traverse the linked list. first 
+  //create a var nodeTocheck, and assign it the head.
   let nodeToCheck = ll.head;
 
+  //the nodetocheck has a next property, check the next node's val property. if its a match
+  //then we reassign the pointers, and then return out of the function, ensuring only the first instance
+  //is removed
   while (nodeToCheck.next) {
     if (nodeToCheck.next.val === val) {
       const valRemove = nodeToCheck.next.val;
       nodeToCheck.next = nodeToCheck.next.next;
-      firstFound = true;
       return valRemove;
     }
+    //this is our reassignment, ensuring our traversal
     nodeToCheck = nodeToCheck.next;
   }
 
+  //we exited the while loop, meaning we found no values
   return "no value found";
 };
-
-
-const ll = new LinkedList();
-const nodeList = new Node('a');
-nodeList.next = new Node('d');
-nodeList.next.next = new Node('b');
-nodeList.next.next.next = new Node('c');
-nodeList.next.next.next.next = new Node('b');
-ll.head = nodeList;
-
-console.log(linkedListRemove(ll, 'a'));
-console.log(ll.head)
 
 
 
