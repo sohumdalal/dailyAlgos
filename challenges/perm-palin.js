@@ -15,8 +15,18 @@
  */
 
 const permPalin = str => {
+//stick into an object and the pattern we are looking for is:
+//if only one property in the object is 1, and all the other are the same number, you have a palindrome
+// {a:2, b: 2} OR {a:2, b: 2, c:2, d:1}
 
+const stringArray = str.split('');
+const cache = {}
+stringArray.forEach(element => {
+    cache[element] = (cache[element] || 0) + 1;
+});
 };
+
+permPalin("ababab")
 
 /* 
  * Extension: Solve in constant space complexity.
