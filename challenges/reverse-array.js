@@ -45,7 +45,10 @@ input string will always have at least one word
 */
 
 const reverseSentence = sentence => {
-  
+  const sentenceArray = sentence.split(' ');
+  return reverseArray(sentenceArray);
 };
+
+console.log(reverseSentence('bob likes dogs alot'));
 
 module.exports = {reverseArray, reverseSentence};
