@@ -13,7 +13,7 @@ describe('linkedListRemove test', () => {
 
   it('Should delete the first instance of the node', () => {
     const deletedNode = linkedListRemove(ll, 'a');
-    expect(deletedNode.val).toEqual('a');
+    expect(deletedNode).toEqual('a');
     expect(ll.head.val).toEqual('d');
     expect(ll.head.next.val).toEqual('b');
   });

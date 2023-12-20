@@ -34,25 +34,22 @@ const linkedListRemove = (ll, val) => {
     return "please enter a value or valid linked list"
   }
 
-  if(ll.head.val === val) {
+  if (ll.head.val === val) {
     const valRemove = ll.head.val;
     ll.head = ll.head.next;
     return valRemove;
   }
-  
+
   let nodeToCheck = ll.head;
-  let firstFound = false
 
   while (nodeToCheck.next) {
-    if(firstFound === false) {
-      if(nodeToCheck.next.val === val) {
-        const valRemove = nodeToCheck.next.val;
-        nodeToCheck.next = nodeToCheck.next.next;
-        firstFound = true;
-        return valRemove;
-      }
-      nodeToCheck = nodeToCheck.next;
+    if (nodeToCheck.next.val === val) {
+      const valRemove = nodeToCheck.next.val;
+      nodeToCheck.next = nodeToCheck.next.next;
+      firstFound = true;
+      return valRemove;
     }
+    nodeToCheck = nodeToCheck.next;
   }
 
   return "no value found";
@@ -67,8 +64,8 @@ nodeList.next.next.next = new Node('c');
 nodeList.next.next.next.next = new Node('b');
 ll.head = nodeList;
 
-console.log(linkedListRemove(ll, 'e'));
-console.log(ll.head.next.next)
+console.log(linkedListRemove(ll, 'a'));
+console.log(ll.head)
 
 
 
