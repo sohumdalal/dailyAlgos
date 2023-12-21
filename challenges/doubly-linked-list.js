@@ -33,12 +33,18 @@ This method should add a node to the end of the doubly linked list
  */
 DoublyLinkedList.prototype.add = function (val) {
 
+  //the first thing you want to do is always add the node
   const newNode = new ListNode(val);
 
+  //check if the head is null, if it is, then it doesnt have a tail, so the node is both
   if(this.head === null) {
     this.head = newNode;
     this.tail = newNode;
   }
+  //ok so the head is not null, and also the tail isnt either
+  //to the tails next is now the new node, and the nodes prev prop is the old tail
+  //then we reasssign the tail to the newNode
+  //keep in mind WHEN to reassign the tail, because you want to keep things in memory
   else {
     this.tail.next = newNode;
     newNode.prev = this.tail;
