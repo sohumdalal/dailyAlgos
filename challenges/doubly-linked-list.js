@@ -32,13 +32,19 @@ function ListNode(val) {
 This method should add a node to the end of the doubly linked list
  */
 DoublyLinkedList.prototype.add = function (val) {
-  //value passed in should be the head, if this.head is null, make a new listNode, assign it the tail as well
-  if(this.head === this.tail === null) {
-    this.head = new ListNode(val);
-    this.tail = this.head;
+
+  const newNode = new ListNode(val);
+
+  if(this.head === null) {
+    this.head = newNode;
+    this.tail = newNode;
   }
-
-
+  else {
+    this.tail.next = newNode;
+    newNode.prev = this.tail;
+    this.tail = newNode;
+  }
+  
 };
 
 /*
