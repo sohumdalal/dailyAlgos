@@ -58,21 +58,24 @@ This method should remove the first instance of a node with the inputted value f
  */
 DoublyLinkedList.prototype.remove = function (val) {
 
+  //first check the head, if its in the head reassign the pointers, and make sure you return
 if(this.head.val === val) {
   this.head = this.head.next;
   this.head.prev = null;
   return;
 }
-
+  //then check the tail, if its in the tail reassign the pointers, and make sure you return
 if(this.tail.val === val) {
   this.tail = this.tail.prev;
   this.tail.next = null;
   return;
 }
 
+//this is something similar to a single list, and how we would traverse the list with a while loop
+//reassigning a var to the val of next. rememember your pointers here! and WHEN to reassign!
 let nodeToCheck = this.head;
-
 while(nodeToCheck.next !== null) {
+  //remember the .val!
   if(nodeToCheck.next.val === val) {
     valToRemove = nodeToCheck.next;
     nodeToCheck.next = nodeToCheck.next.next;
