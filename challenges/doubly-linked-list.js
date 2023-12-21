@@ -52,6 +52,31 @@ This method should remove the first instance of a node with the inputted value f
  */
 DoublyLinkedList.prototype.remove = function (val) {
 
+if(this.head.val === val) {
+  this.head = this.head.next;
+  this.head.prev = null;
+  return;
+}
+
+if(this.tail.val === val) {
+  this.tail = this.tail.prev;
+  this.tail.next = null;
+  return;
+}
+
+let nodeToCheck = this.head;
+
+while(nodeToCheck.next !== null) {
+  if(nodeToCheck.next.val === val) {
+    valToRemove = nodeToCheck.next;
+    nodeToCheck.next = nodeToCheck.next.next;
+    nodeToCheck.next.prev = valToRemove.prev;
+    return;
+  }
+  nodeToCheck = nodeToCheck.next;
+}
+
+
 };
 
 module.exports = { DoublyLinkedList };
