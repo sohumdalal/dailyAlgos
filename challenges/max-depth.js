@@ -22,13 +22,13 @@ maxDepth([4, [0, [[3], 2]], 2, 7, 8, [1]]) -> 4 (maximum depth is 4 levels)
 const { arrayBuffer } = require("stream/consumers");
 
 const maxDepth = (arr, count = 1) => {
- 
+
   //start by defining a more global var called max which will keep track of the max depth
   let max = count;
 
-  for(const el of arr) {
+  for (const el of arr) {
     //iterating through the array, lets check each element if it is an array
-    if(Array.isArray(el)) {
+    if (Array.isArray(el)) {
       //if so, declare a var depth, which returns out a local max of nested arrays, and assigns it to a depth var
       const depth = maxDepth(el, count + 1);
       if (depth > max) {
@@ -44,4 +44,4 @@ const maxDepth = (arr, count = 1) => {
 
 };
 
-module.exports = {maxDepth};
+module.exports = { maxDepth };
