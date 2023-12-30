@@ -24,9 +24,10 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
+//my first thought was to brute force the whole thing, so thats what I did
 function kthToLastNode(k, head) {
   let totalCount = 0;
+  //I first wrote a quick helper to grab the length of the list itself
   function getLength() {
     let curr = head;
     while (curr) {
@@ -36,17 +37,22 @@ function kthToLastNode(k, head) {
   }
   getLength();
 
+  //I use to vars to first get the target distance to traverse, and another to keep track of where we are in the iterations
   const trav = totalCount - k;
   let travCount = 0;
   let curr = head;
 
   while (curr) {
+    //once we reach our target node, we return the value
     if(travCount === trav) {
       return curr.value;
     }
+    //if we don't, then move toward the target, 
     travCount++;
     curr = curr.next;
   }
+
+  return "Target not found in the list"
 
 
 
