@@ -37,7 +37,7 @@ function kthToLastNode(k, head) {
   }
   getLength();
 
-  //I use to vars to first get the target distance to traverse, and another to keep track of where we are in the iterations
+  //I use two vars to first get the target distance to traverse, and another to keep track of where we are in the iterations
   const trav = totalCount - k;
   let travCount = 0;
   let curr = head;
@@ -47,12 +47,12 @@ function kthToLastNode(k, head) {
     if(travCount === trav) {
       return curr.value;
     }
-    //if we don't, then move toward the target, 
+    //if we don't find the target, then move toward the next node
     travCount++;
     curr = curr.next;
   }
 
-  return "Target not found in the list"
+  return undefined;
 
 
 
