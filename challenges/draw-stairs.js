@@ -73,7 +73,7 @@ function drawStar(n) {
      }
 
      console.log(midline);
-}
+};
 
 
 drawStar(9);

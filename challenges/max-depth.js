@@ -19,8 +19,20 @@ maxDepth([4, [0, [[3], 2]], 2, 7, 8, [1]]) -> 4 (maximum depth is 4 levels)
 
 */
 
-const maxDepth = arr => {
-  //do this
+const { arrayBuffer } = require("stream/consumers");
+
+const maxDepth = (arr, count = 0) => {
+  //let define a count var, and every time we call the function again to check, we increment count
+
+  if(!arr.length) {
+    return count;
+  }
+
+  if(Array.isArray(arr[0])) {
+    maxDepth(arr[0], ++count);
+  }
+
+  maxDepth(arr.slice(), count);
 };
 
 module.exports = {maxDepth};
