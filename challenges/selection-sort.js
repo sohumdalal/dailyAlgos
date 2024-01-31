@@ -14,8 +14,36 @@ whole array, the array will end up being sorted.
 */
 
 const selectionSort = array => {
-  
+
+    if (!array.length || !Array.isArray(array) || array == null) {
+        return undefined;
+    }
+
+    let index
+
+    for (let i = 0; i < array.length; i++) {
+
+        let min = array[i];
+        index = i;
+
+        for (let j = i + 1; j < array.length; j++) {
+
+            if (min > array[j]) {
+                min = array[j]
+                index = j;
+            }
+
+
+        }
+        const temp = array[i];
+        array[i] = min;
+        array[index] = temp;
+    }
+
+    return array;
 };
+
+console.log(selectionSort([5, 2, 4, 6, 1, 3]))
 
 /*
 
@@ -41,7 +69,7 @@ etc.
 */
 
 const insertionSort = array => {
-  
+
 };
 
-module.exports = {selectionSort, insertionSort};
+module.exports = { selectionSort, insertionSort };

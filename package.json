@@ -4,8 +4,7 @@
   "description": "A space to work on algorithms, write tests, and get better",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test-hh": "bash ./scripts/run-test.sh"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

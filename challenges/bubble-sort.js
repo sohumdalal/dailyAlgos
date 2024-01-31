@@ -10,7 +10,7 @@
 
 function bubbleSort(array) {
 
-    if (!array.length || !Array.isArray(array) || array === null) {
+    if (!array.length || !Array.isArray(array) || array == null) {
         return undefined;
     }
 
@@ -41,6 +41,7 @@ function bubbleSort(array) {
     return array;
 }
 
+console.log(bubbleSort([100,3,1,3,4]));
 
 
 
