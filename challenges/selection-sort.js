@@ -15,27 +15,46 @@ whole array, the array will end up being sorted.
 
 const selectionSort = array => {
 
+    //lets first start with out input scrubbing, making sure we have a valid array
+
     if (!Array.isArray(array) || array === null) {
         return undefined;
     }
 
-    let index;
+    //lets enter a loop to pin the first element of our array. 
+    //we want to keep track of a min value which we will reassign to array[i], @ the current i.
+    //we also want to keep track of the index which contains new min value in the array; so we can conduct a proper swap
 
     for (let i = 0; i < array.length; i++) {
 
-        let min = array[i];
-        index = i;
+        // console.log("i:", i)
+        // console.log("Array@i:", array[i]);
 
+        let min = array[i];
+        let index = i;
+
+        //this logic will find the min value, and keep track of its index
         for (let j = i + 1; j < array.length; j++) {
+
+            // console.log("Array@j:", array[j]);
+            // console.log("Current Min:", min)
+            // console.log("----------------------")
+
             if (min > array[j]) {
                 min = array[j]
                 index = j;
             }
         }
 
+        //the swapping in place logic that assigns a temp variable, and brings together the min, temp, and index variable. 
         const temp = array[i];
         array[i] = min;
         array[index] = temp;
+
+        // console.log("My Array is:", array)
+        // console.log("- - - - - - - - - - - - - - - - - - - - - - -")
+
+
     }
 
     return array;
